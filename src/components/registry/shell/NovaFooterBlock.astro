@@ -9,7 +9,7 @@ interface Props {
   locale?: NovaLocale;
 }
 
-const { locale = "pl" } = Astro.props as Props;
+const { locale = "en" } = Astro.props as Props;
 const id = "contact";
 const copy = getNovaCopy(locale).footer;
 const footerLinks = copy.footerLinks.map((link) => ({ ...link, href: getNovaNavigationPath(link.href, locale) }));
@@ -37,12 +37,12 @@ const primaryLabel = copy.primaryLabel;
       <Text class="mx-auto mt-6 max-w-xl text-[clamp(1rem,1.5vw,1.2rem)] leading-[1.55] text-brand-light/80">{copy.description}</Text>
       <div class="mt-6 flex flex-col items-center gap-3">
         <Text variant="feature-body-sm" class="text-brand-light/80">{copy.locationLabel}</Text>
-        {company.address && <Text variant="body" class="text-brand-light">{company.address}, {company.city}, {company.state} {company.zipCode}</Text>}
+        {company.address && <address class="not-italic text-brand-light"><Text tag="span" variant="body" class="block">{company.address}</Text><Text tag="span" variant="body" class="block">{`${company.city}, ${company.state} ${company.zipCode}`}</Text></address>}
         {phoneHref && <a href={phoneHref} class="inline-flex min-h-11 items-center text-xl font-semibold text-brand-light underline underline-offset-4">{company.phone}</a>}
         {!phoneHref && company.phone && <Text variant="body" class="text-brand-light">{company.phone}</Text>}
         {emailHref && <a href={emailHref} class="inline-flex min-h-11 items-center break-all text-brand-light underline underline-offset-4">{company.email}</a>}
         {!emailHref && company.email && <Text variant="body" class="text-brand-light">{company.email}</Text>}
-        {company.hours && <Text variant="feature-body-sm" class="text-brand-light/80">{company.hours}</Text>}
+        <Text variant="feature-body-sm" class="text-brand-light/80">{copy.appointmentOnly}</Text>
       </div>
       <div class="mx-auto mt-10 flex w-full max-w-xs flex-col justify-center gap-3 sm:mt-12 sm:max-w-none sm:flex-row">
         <Button href={primaryHref} variant="accent" class="min-h-11 w-full sm:w-auto">{primaryLabel}</Button>

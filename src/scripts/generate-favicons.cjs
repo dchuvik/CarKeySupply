@@ -8,7 +8,7 @@ async function generateFavicons() {
   const ogTarget = path.join(directory, 'og-image.png');
   if (!fs.existsSync(ogTarget) || fs.statSync(ogTarget).mtimeMs < fs.statSync(ogSource).mtimeMs) {
     await sharp(ogSource).png().toFile(ogTarget);
-    console.log('Generated Local Key sharing image.');
+    console.log('Generated Car Key Supply sharing image.');
   }
   const icon = path.join(directory, 'icon.svg');
   const targets = ['favicon.svg', 'favicon-32x32.png', 'apple-touch-icon.png', 'favicon.ico'];
@@ -22,7 +22,7 @@ async function generateFavicons() {
   await sharp(source).resize(32, 32).png().toFile(path.join(directory, 'favicon-32x32.png'));
   await sharp(source).resize(180, 180).png().toFile(path.join(directory, 'apple-touch-icon.png'));
   await sharp(source).resize(32, 32).png().toFile(path.join(directory, 'favicon.ico'));
-  console.log('Generated Local Key favicon assets.');
+  console.log('Generated Car Key Supply favicon assets.');
 }
 
 generateFavicons().catch((error) => {

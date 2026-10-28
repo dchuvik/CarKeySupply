@@ -1,175 +1,41 @@
 ---
 import Heading from '@components/ui/atoms/Heading.astro';
 import Text from '@components/ui/atoms/Text.astro';
-import Input from '@components/ui/atoms/Input.astro';
-import Textarea from '@components/ui/atoms/Textarea.astro';
-import Label from '@components/ui/atoms/Label.astro';
 import Button from '@components/ui/atoms/Button.astro';
-import company from '@data/global/company.json';
+import KeyRequestFunnel from '@components/ui/molecules/KeyRequestFunnel.astro';
 import appointments from '@data/global/appointments.json';
-import { getNovaNavigationPath, type NovaLocale } from '@utils/nova-i18n';
-import { getAppointmentToday } from '@utils/appointment-request';
+import type { NovaLocale } from '@utils/nova-i18n';
 
 interface Props { locale?: NovaLocale; }
 const { locale = 'en' } = Astro.props;
 const copy = appointments[locale];
-const withPhone = (value: string) => value.replace('{phone}', company.phone);
-const selects = [
-  { name: 'service', options: copy.services },
-  { name: 'workingKey', options: copy.workingKeys },
-] as const;
 ---
 
-<dialog id="schedule-appointment" class="appointment-dialog" aria-labelledby="appointment-title" aria-describedby="appointment-description" data-appointment-dialog data-locale={locale} data-phone={company.phone} data-lenis-prevent>
+<dialog id="schedule-appointment" class="appointment-dialog" aria-labelledby="appointment-title" aria-describedby="appointment-description" data-appointment-dialog data-lenis-prevent>
   <div class="appointment-content">
     <div class="appointment-header">
-      <div class="space-y-3">
-        <Heading id="appointment-title" tag="h2" variant="section-heading-lg" tabindex="-1" class="focus:outline-none">{copy.title}</Heading>
-        <Text id="appointment-description" variant="body" class="text-brand-dark/70">{copy.description}</Text>
+      <div class="space-y-2">
+        <Heading id="appointment-title" tag="h2" variant="feature-title" tabindex="-1" class="focus:outline-none">{copy.title}</Heading>
+        <Text id="appointment-description" variant="feature-body-sm" class="text-brand-dark/65">{copy.description}</Text>
       </div>
       <Button type="button" variant="ghost" size="icon" data-appointment-close aria-label={copy.close} class="!size-11 !min-w-0 shrink-0 !p-0 !text-brand-dark">
         <svg slot="icon-left" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" /></svg>
       </Button>
     </div>
-
-    <Text variant="feature-body-sm" class="text-brand-dark/70">{copy.required}</Text>
-    <form id="appointment-form" method="dialog" class="space-y-5" novalidate>
-      <div class="appointment-fields">
-        <div>
-          <Label for="appointment-name">{copy.labels.name} *</Label>
-          <Input id="appointment-name" name="name" autocomplete="name" placeholder={copy.placeholders.name} required maxlength="80" />
-        </div>
-        <div>
-          <Label for="appointment-phone">{copy.labels.phone} *</Label>
-          <Input id="appointment-phone" name="phone" type="tel" autocomplete="tel" placeholder={copy.placeholders.phone} required maxlength="25" />
-        </div>
-        <div>
-          <Label for="appointment-year">{copy.labels.vehicleYear} *</Label>
-          <Input id="appointment-year" name="vehicleYear" inputmode="numeric" pattern="[0-9]{4}" placeholder={copy.placeholders.vehicleYear} required minlength="4" maxlength="4" />
-        </div>
-        <div>
-          <Label for="appointment-vehicle">{copy.labels.vehicleModel} *</Label>
-          <Input id="appointment-vehicle" name="vehicleModel" placeholder={copy.placeholders.vehicleModel} required maxlength="100" />
-        </div>
-        {selects.map((field) => (
-          <div>
-            <Label for={`appointment-${field.name}`}>{copy.labels[field.name]} *</Label>
-            <select id={`appointment-${field.name}`} name={field.name} class="ui-form-input" required>
-              <option value="">{copy.placeholders.select}</option>
-              {field.options.map((option) => <option value={option.value}>{option.label}</option>)}
-            </select>
-          </div>
-        ))}
-        <div>
-          <Label for="appointment-date">{copy.labels.preferredDate} *</Label>
-          <Input id="appointment-date" name="preferredDate" type="date" min={getAppointmentToday()} required />
-        </div>
-        <div>
-          <Label for="appointment-time">{copy.labels.preferredTime} *</Label>
-          <select id="appointment-time" name="preferredTime" class="ui-form-input" required>
-            <option value="">{copy.placeholders.select}</option>
-            {copy.times.map((option) => <option value={option.value}>{option.label}</option>)}
-          </select>
-        </div>
-      </div>
-      <div>
-        <Label for="appointment-location">{copy.labels.location} *</Label>
-        <Input id="appointment-location" name="location" autocomplete="address-level2" placeholder={copy.placeholders.location} required maxlength="100" />
-      </div>
-      <div>
-        <Label for="appointment-notes">{copy.labels.notes}</Label>
-        <Textarea id="appointment-notes" name="notes" rows={3} maxlength="500" placeholder={copy.placeholders.notes} />
-      </div>
-      <div class="space-y-4 border-t border-brand-dark/10 pt-5">
-        <Text variant="feature-body-sm">{withPhone(copy.handoff)}</Text>
-        <div class="flex flex-col gap-3 sm:flex-row">
-          <Button type="submit" variant="primary" class="w-full sm:w-auto">{copy.submit}</Button>
-          <Button type="button" variant="outline" data-appointment-copy class="w-full sm:w-auto">{copy.copy}</Button>
-        </div>
-        <Text variant="disclaimer" class="text-brand-dark/65">{withPhone(copy.fallback)}</Text>
-        <Text variant="disclaimer" class="text-brand-dark/65">{copy.privacy} <a href={getNovaNavigationPath('/polityka-prywatnosci/', locale)} class="underline underline-offset-2">{copy.privacyLink}</a></Text>
-      </div>
-    </form>
-    <div data-appointment-result hidden class="space-y-3 rounded-xl border border-brand-dark/15 bg-brand-accent/10 p-4">
-      <Text data-appointment-status role="status" aria-live="polite" tabindex="-1" variant="body" />
-      <Label for="appointment-preview">{copy.preview}</Label>
-      <Textarea id="appointment-preview" data-appointment-preview readonly rows={9} class="text-sm" />
-    </div>
+    <KeyRequestFunnel locale={locale} id="dialog-request" />
   </div>
 </dialog>
 
 <style>
-  .appointment-dialog {
-    width: min(calc(100% - 2rem), 42rem);
-    max-width: none;
-    max-height: calc(100dvh - 2rem);
-    margin: auto;
-    padding: 0;
-    overflow-y: auto;
-    overscroll-behavior: contain;
-    border: 1px solid var(--color-outline-variant);
-    border-radius: var(--ui-radius-xl);
-    background: var(--ui-bg-page);
-    color: var(--color-brand-dark);
-  }
-
-  .appointment-dialog::backdrop {
-    background: color-mix(in srgb, var(--color-brand-dark) 65%, transparent);
-  }
-
-  .appointment-content {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: 1.25rem;
-    width: 100%;
-    min-width: 0;
-    padding: clamp(1.25rem, 4vw, 2rem);
-  }
-
-  .appointment-content > * { min-width: 0; }
-
-  .appointment-header {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-  }
-
-  .appointment-header > div {
-    min-width: 0;
-    flex: 1;
-  }
-
-  .appointment-header :global(h2) {
-    font-size: clamp(1.5rem, 5vw, 2.5rem);
-    line-height: 1.1;
-  }
-
-  .appointment-fields {
-    display: grid;
-    gap: 1.25rem;
-  }
-
-  .appointment-fields > div {
-    min-width: 0;
-  }
-
-  .appointment-dialog :global(input),
-  .appointment-dialog :global(select),
-  .appointment-dialog :global(textarea) {
-    min-width: 0;
-    max-width: 100%;
-    font-size: 1rem;
-  }
-
-  @media (min-width: 36rem) {
-    .appointment-fields { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  }
+  .appointment-dialog { width: min(calc(100% - 2rem), 42rem); max-width: none; max-height: calc(100dvh - 2rem); margin: auto; padding: 0; overflow-y: auto; overscroll-behavior: contain; border: 1px solid var(--color-outline-variant); border-radius: var(--ui-radius-xl); background: var(--ui-bg-page); color: var(--color-brand-dark); }
+  .appointment-dialog[open] { display: block; }
+  .appointment-dialog::backdrop { background: rgb(0 0 0 / 0.65); backdrop-filter: blur(4px); }
+  .appointment-content { width: 100%; min-width: 0; padding: clamp(1.25rem, 4vw, 2rem); }
+  .appointment-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--color-outline-variant); }
+  .appointment-header > div { min-width: 0; flex: 1; }
 </style>
 
 <script>
-  import appointments from '@data/global/appointments.json';
-  import { buildAppointmentMessage, buildSmsUrl, getAppointmentToday, type AppointmentRequest } from '@utils/appointment-request';
-
   type MotionWindow = Window & { __lenis?: { isStopped: boolean; stop(): void; start(): void } };
   let previousFocus: HTMLElement | null = null;
   let previousOverflow = '';
@@ -179,70 +45,6 @@ const selects = [
     const dialog = document.querySelector<HTMLDialogElement>('[data-appointment-dialog]');
     if (!dialog || dialog.dataset.bound) return;
     dialog.dataset.bound = 'true';
-    const form = dialog.querySelector<HTMLFormElement>('#appointment-form')!;
-    const result = dialog.querySelector<HTMLElement>('[data-appointment-result]')!;
-    const status = dialog.querySelector<HTMLElement>('[data-appointment-status]')!;
-    const preview = dialog.querySelector<HTMLTextAreaElement>('[data-appointment-preview]')!;
-    const phone = dialog.querySelector<HTMLInputElement>('[name="phone"]')!;
-    const date = dialog.querySelector<HTMLInputElement>('[name="preferredDate"]')!;
-    const locale = dialog.dataset.locale === 'pl' ? 'pl' : 'en';
-    const copy = appointments[locale];
-    const recipient = dialog.dataset.phone!;
-    const withPhone = (value: string) => value.replace('{phone}', recipient);
-
-    function prepareRequest(): string | undefined {
-      const digits = phone.value.replace(/\D/g, '');
-      phone.setCustomValidity(digits.length >= 7 && digits.length <= 15 ? '' : copy.phoneError);
-      date.min = getAppointmentToday();
-      date.setCustomValidity(date.value && date.value < date.min ? copy.dateError : '');
-      if (!form.reportValidity()) return;
-      const fields = Object.fromEntries(new FormData(form).entries()) as unknown as AppointmentRequest;
-      const message = buildAppointmentMessage(fields, copy);
-      preview.value = message;
-      return message;
-    }
-
-    function showResult(message: string) {
-      status.textContent = message;
-      result.hidden = false;
-    }
-
-    form.addEventListener('input', (event) => {
-      const field = event.target;
-      if (field instanceof HTMLInputElement) field.setCustomValidity('');
-      result.hidden = true;
-    });
-
-    form.addEventListener('change', () => { result.hidden = true; });
-
-    form.addEventListener('submit', (event) => {
-      event.preventDefault();
-      const message = prepareRequest();
-      if (!message) return;
-      const appleDevice = /iPad|iPhone|iPod/.test(navigator.userAgent)
-        || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-      const link = document.createElement('a');
-      link.href = buildSmsUrl(recipient, message, appleDevice);
-      link.hidden = true;
-      dialog.appendChild(link);
-      showResult(copy.ready);
-      link.click();
-      link.remove();
-    });
-
-    dialog.querySelector('[data-appointment-copy]')?.addEventListener('click', async () => {
-      const message = prepareRequest();
-      if (!message) return;
-      try {
-        await navigator.clipboard.writeText(message);
-        showResult(withPhone(copy.copied));
-      } catch {
-        showResult(withPhone(copy.copyFallback));
-        preview.focus();
-        preview.select();
-      }
-    });
-
     dialog.querySelector('[data-appointment-close]')?.addEventListener('click', () => dialog.close());
     dialog.addEventListener('click', (event) => {
       if (event.target !== dialog) return;
@@ -272,7 +74,7 @@ const selects = [
     resumeMotion = Boolean(motion && !motion.isStopped);
     motion?.stop();
     document.body.style.overflow = 'hidden';
-    dialog.querySelector<HTMLInputElement>('[name="preferredDate"]')!.min = getAppointmentToday();
+
     dialog.showModal();
     dialog.querySelector<HTMLElement>('#appointment-title')?.focus();
   }, true);

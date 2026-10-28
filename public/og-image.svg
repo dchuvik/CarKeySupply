@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Local Key, automotive locksmith in Elbridge, NY">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Car Key Supply, automotive locksmith in Elbridge, NY">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#151515"/>
@@ -14,7 +14,7 @@
   <circle cx="1050" cy="120" r="260" fill="#ffffff" opacity="0.05"/>
   <circle cx="140" cy="520" r="200" fill="#ffffff" opacity="0.05"/>
   <text x="600" y="200" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" letter-spacing="5" fill="#C79A78">YOUR LOCAL AUTOMOTIVE LOCKSMITH</text>
-  <text x="600" y="320" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="104" font-weight="700" fill="#ffffff">Local Key</text>
+  <text x="600" y="320" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="104" font-weight="700" fill="#ffffff">Car Key Supply</text>
   <text x="600" y="395" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="34" fill="#dec2ac">Car key cutting &amp; key fob programming</text>
   <text x="600" y="475" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="26" fill="#ffffff">Elbridge, NY | Serving Greater Syracuse</text>
 </svg>

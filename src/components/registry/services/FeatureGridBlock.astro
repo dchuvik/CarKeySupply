@@ -1,8 +1,7 @@
 ---
 // Why: FeatureGridBlock is a reusable "feature grid" section
 // project (FeatureGridBlock).The client reveal and raw <i> were replaced with the Icon atom
-// of the starter kit, and the client data (lean industry) was replaced with general PL/EN
-// content to make the block suitable for the library.
+// of the starter kit.
 import Section from "@components/ui/layout/Section.astro";
 import Container from "@components/ui/layout/Container.astro";
 import SectionHeader from "@components/ui/molecules/SectionHeader.astro";
@@ -21,8 +20,7 @@ interface Props {
   sectionId?: string;
 /** The contents of the section; override the default JSON. */
 	data: { heading: string; intro: string; items: FeatureGridItem[] };
-/** Content language with JSON. EN is the default language, EN is the equivalent of English. */
-	locale?: "pl" | "en";
+	locale?: "en";
 	/** Section heading tag: 'h2' by default, 'h1' when the block is the first section without hero (SEO). */
 	headingTag?: string;
 }

@@ -13,10 +13,10 @@ const { locale = 'en' } = Astro.props;
 const copy = getNovaCopy(locale).sections;
 ---
 
-<Hero {...copy['nova-hero-wireframe']} />
-<Projects {...copy['nova-projects']} />
+<Hero {...copy['nova-hero-wireframe']} locale={locale} />
 <Services {...copy['nova-services']} locale={locale} />
-<About {...copy['nova-team']} />
+<Projects {...copy['nova-projects']} />
 <Steps {...copy['steps-numbered']} />
+<About {...copy['nova-team']} locale={locale} />
 <ServiceArea {...copy['feature-grid']} />
 <Faq {...copy.faq3} />

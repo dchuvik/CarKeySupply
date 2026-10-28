@@ -1,6 +1,6 @@
-# Local Key — Automotive Locksmith in Elbridge, New York
+# Car Key Supply — Automotive Locksmith in Elbridge, New York
 
-Local Key is an automotive locksmith based in Elbridge, NY, serving Greater Syracuse and Central New York.
+Car Key Supply is an automotive locksmith based in Elbridge, NY, serving Greater Syracuse and Central New York.
 
 ## Services
 
@@ -28,9 +28,10 @@ Have the vehicle's year, make and model ready, along with your location and whet
 - FAQs: /#faq
 - Schedule an appointment: /#schedule-appointment
 - Contact: /#contact
-- Polish homepage: /pl/
+- Shop location and directions: /#about
+- Privacy policy: /privacy-policy/
 - Sitemap: /sitemap-index.xml
 
 ## Appointment requests
 
-The appointment form prepares a text to 315-552-1553 with contact, vehicle, service, location and preferred date/time details. Customers review and send the message in their own texting app. A requested appointment is confirmed by Local Key’s reply. The form does not send email or submit customer details to a web server.
+The appointment form prepares a text to 315-552-1553 with contact, vehicle, service, location and preferred date/time details. Customers review and send the message in their own texting app. A requested appointment is confirmed by Car Key Supply’s reply. The form does not send email or submit customer details to a web server.

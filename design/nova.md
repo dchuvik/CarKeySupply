@@ -1,5 +1,5 @@
 ---
-name: Local Key
+name: Car Key Supply
 colors:
   surface: "#fffdf9"
   surface-dim: "#f4f0e9"
@@ -122,7 +122,7 @@ animations:
 
 # Nova, Visual Direction
 
-Local Key is an automotive locksmith in Elbridge, NY. The site should feel clear, practical and dependable, with strong photography and easy appointment requests.
+Car Key Supply is an automotive locksmith in Elbridge, NY. The site should feel clear, practical and dependable, with strong photography and easy appointment requests.
 
 ## Composition Principles
 

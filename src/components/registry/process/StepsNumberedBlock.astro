@@ -16,9 +16,7 @@ export interface Props {
   eyebrow?: string;
   headingLines?: string[];
   steps?: Step[];
-  /* * Content language from JSON. PL is the default language, EN is the English equivalent. */
-  locale?: "pl" | "en";
-  /* * Full section content ({ en, en }). Props override JSON. */
+  locale?: "en";
 
   /* * Section header tag: 'h2' by default, 'h1' when the block is the first section of the page without hero (SEO). */
   headingTag?: string;
@@ -26,10 +24,6 @@ export interface Props {
 
 const props = Astro.props as Props;
 const headingTag = props.headingTag ?? "h2";
-// Why: the pattern "props.data || jsonData[locale]" (as in AboutExpertBlock), so that the block
-// works independently with the section data, and PageBuilder or CMS can overwrite the content.
-// When the date comes from the outside, we choose the language variant (pl/en) in it, as JSON
-// does.
 const t = {
   eyebrow: props.eyebrow,
   headingLines: props.headingLines ?? [],

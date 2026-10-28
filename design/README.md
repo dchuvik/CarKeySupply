@@ -1,4 +1,4 @@
-﻿# Local Key design tokens
+﻿# Car Key Supply design tokens
 
 `nova.md` defines the site's color, spacing, radius, typography and animation tokens. The existing `nova` identifier is retained in selectors for compatibility with the original design.
 

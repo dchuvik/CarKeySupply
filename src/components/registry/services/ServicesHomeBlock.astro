@@ -6,7 +6,7 @@ import Text from "@components/ui/atoms/Text.astro";
 import Icon from "@components/ui/atoms/Icon.astro";
 
 type Service = { number: string; icon?: string; title: string; description: string };
-interface Props { id?: string; locale?: "en" | "pl"; title?: string; description?: string; linkLabel?: string; linkHref?: string; items?: Service[]; class?: string; }
+interface Props { id?: string; locale?: "en"; title?: string; description?: string; linkLabel?: string; linkHref?: string; items?: Service[]; class?: string; }
 const props = Astro.props as Props;
 const title = props.title;
 const description = props.description;
@@ -15,7 +15,7 @@ const linkHref = props.linkHref;
 const items = props.items ?? [];
 ---
 
-<Section id={props.id ?? (props.locale === "pl" ? "uslugi" : "services")} tone="page" class:list={["services-section", props.class]}>
+<Section id={props.id ?? "services"} tone="page" class:list={["services-section", props.class]}>
   <Container class="w-full max-w-none px-[clamp(1.5rem,5vw,5rem)]">
     <div class="nova-services-intro">
       <div>

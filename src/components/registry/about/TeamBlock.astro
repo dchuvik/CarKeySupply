@@ -3,11 +3,12 @@ import Section from "@components/ui/layout/Section.astro";
 import Container from "@components/ui/layout/Container.astro";
 import Heading from "@components/ui/atoms/Heading.astro";
 import Text from "@components/ui/atoms/Text.astro";
-import SmartImage from "@components/ui/atoms/SmartImage.astro";
+import ShopLocationCard from "@components/ui/molecules/ShopLocationCard.astro";
 import Button from "@components/ui/atoms/Button.astro";
+import type { NovaLocale } from '@utils/nova-i18n';
 
 interface TeamAvatar { src: string; alt: string; }
-interface Props { sectionId?: string; title?: string; description?: string; image?: string; imageAlt?: string; checks?: string[]; teamLabel?: string; teamCount?: string; teamAriaLabel?: string; teamAvatars?: TeamAvatar[]; buttonLabel?: string; buttonHref?: string; class?: string; }
+interface Props { sectionId?: string; title?: string; description?: string; image?: string; imageAlt?: string; checks?: string[]; teamLabel?: string; teamCount?: string; teamAriaLabel?: string; teamAvatars?: TeamAvatar[]; buttonLabel?: string; buttonHref?: string; class?: string; locale?: NovaLocale; }
 const props = Astro.props as Props;
 const title = props.title;
 const description = props.description;
@@ -25,9 +26,7 @@ const teamAvatars = props.teamAvatars ?? [];
 <Section id={props.sectionId ?? "zespol"} tone="page" class:list={["py-12", props.class]}>
   <Container class="w-full max-w-none px-[clamp(1.5rem,5vw,5rem)]">
     <div class="grid grid-cols-1 items-center gap-6 md:grid-cols-2 md:gap-12">
-      <figure class="m-0 grid min-h-80 place-items-center overflow-hidden rounded-[var(--ui-radius-xl)]" data-motion="viewport" data-motion-skip>
-        <SmartImage src={image} alt={imageAlt} width={1280} height={900} loading="eager" class="h-full min-h-80 w-full object-cover" />
-      </figure>
+      <ShopLocationCard locale={props.locale ?? 'en'} image={image} imageAlt={imageAlt} />
       <div class="flex flex-col gap-4 px-0 py-6 md:p-8" data-motion-sequence="viewport" data-motion-profile="soft">
         <Heading tag="h2" variant="section-title">{title}</Heading>
         <Text variant="lead">{description}</Text>

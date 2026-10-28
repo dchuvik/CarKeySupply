@@ -2,7 +2,7 @@ import sharp from 'sharp';
 import fs from 'fs';
 import path from 'path';
 
-// Optimize project sources, uploaded media, and PNG/JPEG photos added directly
+// Optimize project sources, uploaded media, and PNG/JPEG/WebP photos added directly
 // to public/assets/images. Keep originals so existing content URLs stay valid.
 const PROJECT_ROOT = process.cwd();
 const SOURCES = [
@@ -96,10 +96,13 @@ async function processDirectory(
     }
 
     const ext = path.extname(item).toLowerCase();
-    if (!['.jpg', '.jpeg', '.png', '.webp', '.avif'].includes(ext)) continue;
-    // Photos added directly to public keep their original URL. Process only
-    // originals here so generated WebP/AVIF files are never processed again.
-    if (source.id === 'public-images' && !['.jpg', '.jpeg', '.png'].includes(ext)) continue;
+    const inputBaseName = path.basename(item, ext);
+    // A WebP without a PNG/JPEG source is an original. Width-suffixed files
+    // and WebP files paired with a PNG/JPEG are generated derivatives.
+    const isWebpOriginal = ext === '.webp'
+      && !/@\d+$/.test(inputBaseName)
+      && !['.jpg', '.jpeg', '.png'].some((extension) => fs.existsSync(path.join(directory, `${inputBaseName}${extension}`)));
+    if (!['.jpg', '.jpeg', '.png'].includes(ext) && !isWebpOriginal) continue;
 
     const relativePath = path.relative(source.inputDir, directory);
     const baseName = slugify(path.basename(item, ext));
@@ -122,19 +125,28 @@ async function processDirectory(
       return actualWidth !== standardWidth;
     });
     const outputSizes = [{ name: '', width: 800, desc: 'standard' }, ...neededSizes];
+    // Keep an uploaded WebP intact: its 800px derivative uses @800 rather
+    // than sharing the original's filename.
+    const outputPath = (size: { name: string }, extension: string) => getOutputPath(
+      source,
+      { name: isWebpOriginal && size.name === '' ? '@800' : size.name },
+      extension,
+      relativePath,
+      baseName,
+    );
     const allTargets = outputSizes.flatMap((size) => FORMATS.map((format) => ({
       ...size,
       ...format,
-      filePath: getOutputPath(source, size, format.extension, relativePath, baseName),
+      filePath: outputPath(size, format.extension),
     })));
 
-    // Only obsolete WebP/AVIF derivatives are cleanup targets. Public PNG/JPEG
-    // originals and uploaded source files are preserved.
+    // Only obsolete WebP/AVIF derivatives are cleanup targets.
+    // Public originals and uploaded source files are preserved.
     const expectedPaths = new Set(allTargets.map((target) => target.filePath));
     for (const staleTarget of SIZES.flatMap((size) => FORMATS.map((format) => ({
       ...size,
       ...format,
-      filePath: getOutputPath(source, size, format.extension, relativePath, baseName),
+      filePath: outputPath(size, format.extension),
     })))) {
       if (!expectedPaths.has(staleTarget.filePath) && fs.existsSync(staleTarget.filePath)) {
         fs.rmSync(staleTarget.filePath);

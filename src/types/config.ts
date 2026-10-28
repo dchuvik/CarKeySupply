@@ -18,7 +18,6 @@ export interface CompanyConfig {
   services?: string[];
   phone: string;
   email: string;
-  hours: string;
   priceRange?: string;
   description?: string;
   geo?: {

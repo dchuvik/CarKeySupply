@@ -1,5 +1,4 @@
 ---
-import LanguageSwitch from "./LanguageSwitch.astro";
 import { getNovaCopy, getNovaNavigationPath, type NovaLocale } from "@utils/nova-i18n";
 
 interface Props {
@@ -7,7 +6,7 @@ interface Props {
 	locale?: NovaLocale;
 }
 
-const { drawerMode = "mobile", locale = "pl" } = Astro.props;
+const { drawerMode = "mobile", locale = "en" } = Astro.props;
 const headerData = getNovaCopy(locale).navigation;
 const rootVisibility = drawerMode === "mobile" ? "lg:hidden" : "";
 
@@ -153,9 +152,6 @@ function subId(index: number): string {
 					</div>
 				</nav>
 
-				<div class="ui-nav-drawer__bottom">
-					<LanguageSwitch locale={locale} />
-				</div>
 
 			</div>
 		</div>

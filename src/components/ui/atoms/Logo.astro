@@ -12,25 +12,24 @@ interface Props {
 	density?: "default" | "compact";
 }
 
-const { variant = "dark", showText = true, className = "", density = "default" } = Astro.props;
+const { showText = true, className = "", density = "default" } = Astro.props;
 
-/** Temporarily disabled — for tagline / company.branding.tagline */
-const showTagline = false;
-
-// Why: the generated fallback is an icon, while Nova's header uses a wordmark.
 const logoPath = company.branding.logoImage;
 ---
 
 <div class={`flex items-center ${density === "compact" ? "gap-2" : "gap-3"} ${className}`}>
   {logoPath ? (
-    <img
-      src={logoPath}
-      alt={`${company.name} ${company.branding.logoSuffix || ""}`}
-      width="512"
-      height="512"
-      loading="eager"
-      class={density === "compact" ? "h-11 w-auto object-contain lg:h-14" : "h-10 lg:h-12 w-auto object-contain"}
-    />
+    <Fragment>
+      <img
+        src={logoPath}
+        alt={`${company.name} ${company.branding.logoSuffix || ''}`}
+        width="600"
+        height="551"
+        loading="eager"
+        class={density === "compact" ? "h-14 w-auto rounded-lg object-contain lg:h-16" : "h-14 w-auto rounded-lg object-contain"}
+      />
+      {showText && <span class="max-w-[5rem] font-heading text-xs font-bold leading-tight tracking-[0.1em] sm:max-w-[8rem] sm:text-sm xl:max-w-none xl:text-base">{company.name.toUpperCase()}</span>}
+    </Fragment>
   ) : (
     <span class="font-heading text-base font-bold tracking-[0.18em]" aria-label={company.name}>
       {company.name.toUpperCase()}

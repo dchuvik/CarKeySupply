@@ -35,9 +35,11 @@ const widths = [220, 480, 640, 800, 1080, 1280, 1600, 1920];
 const derivativeBase = src?.startsWith('/assets/images/')
   ? src.replace(/\.[a-z0-9]+$/i, '')
   : undefined;
+const isWebpOriginal = src?.endsWith('.webp') && derivativeBase
+  && !['.jpg', '.jpeg', '.png'].some((extension) => fs.existsSync(path.join(process.cwd(), 'public', `${derivativeBase.slice(1)}${extension}`)));
 const variants = (format: string) => derivativeBase
   ? widths.flatMap((width) => {
-      const url = `${derivativeBase}${width === 800 ? '' : `@${width}`}.${format}`;
+      const url = `${derivativeBase}${width === 800 && !isWebpOriginal ? '' : `@${width}`}.${format}`;
       return fs.existsSync(path.join(process.cwd(), 'public', url.slice(1)))
         ? [{ url, width }]
         : [];
@@ -48,7 +50,8 @@ const avif = variants('avif');
 const srcset = (images: { url: string; width: number }[]) => images.length
   ? images.map(({ url, width }) => `${url} ${width}w`).join(', ')
   : undefined;
-const imageSrc = webp.find(({ width }) => width === 800)?.url || src;
+// Retain a native WebP source as the fallback; srcset supplies smaller versions.
+const imageSrc = isWebpOriginal ? src : webp.find(({ width }) => width === 800)?.url || src;
 ---
 
 {showPlaceholder ? (

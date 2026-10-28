@@ -2,6 +2,7 @@ export interface AppointmentRequest {
   name: string;
   phone: string;
   vehicleYear: string;
+  vehicleMake: string;
   vehicleModel: string;
   service: string;
   workingKey: string;
@@ -34,7 +35,7 @@ export function buildSmsUrl(phone: string, message: string, appleDevice = false)
 
 export function buildAppointmentMessage(request: AppointmentRequest, copy: AppointmentMessageCopy): string {
   const fields: (keyof AppointmentRequest)[] = [
-    'name', 'phone', 'vehicleYear', 'vehicleModel', 'service', 'workingKey',
+    'name', 'phone', 'vehicleYear', 'vehicleMake', 'vehicleModel', 'service', 'workingKey',
     'preferredDate', 'preferredTime', 'location', 'notes',
   ];
   return [

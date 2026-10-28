@@ -3,7 +3,7 @@ import appointments from '@data/global/appointments.json';
 import { buildAppointmentMessage, buildSmsUrl, getAppointmentToday, normalizeSmsNumber, type AppointmentRequest } from './appointment-request';
 
 const request: AppointmentRequest = {
-  name: 'Alex & Sam', phone: '(315) 555-0123', vehicleYear: '2020', vehicleModel: 'Toyota Camry',
+  name: 'Alex & Sam', phone: '(315) 555-0123', vehicleYear: '2020', vehicleMake: 'Toyota', vehicleModel: 'Camry',
   service: 'Spare key', workingKey: 'Yes', preferredDate: '2026-11-02', preferredTime: 'Afternoon',
   location: 'Elbridge, NY', notes: 'Need a spare + remote. Available after 1:00.',
 };
@@ -20,7 +20,8 @@ describe('appointment text requests', () => {
     const body = buildAppointmentMessage(request, appointments.en);
     expect(body).toContain('Alex & Sam');
     expect(body).toContain('2020');
-    expect(body).toContain('Toyota Camry');
+    expect(body).toContain('Make: Toyota');
+    expect(body).toContain('Model: Camry');
     expect(body).toContain('Spare key');
     expect(body).toContain('(315) 555-0123');
     expect(body).toContain('2026-11-02');
@@ -45,6 +46,13 @@ describe('appointment text requests', () => {
 
   it('omits empty optional notes', () => {
     expect(buildAppointmentMessage({ ...request, notes: ' ' }, appointments.en)).not.toContain('Anything else?');
+  });
+
+  it('supports a request without a preferred appointment date or time', () => {
+    const body = buildAppointmentMessage({ ...request, preferredDate: '', preferredTime: '' }, appointments.en);
+    expect(body).not.toContain(appointments.en.labels.preferredDate);
+    expect(body).not.toContain(appointments.en.labels.preferredTime);
+    expect(body).toContain('Please confirm availability and pricing');
   });
 
   it('uses the Elbridge date around midnight instead of the execution host timezone', () => {

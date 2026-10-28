@@ -1,21 +1,20 @@
 {
-  "fullName": "Local Key",
-  "name": "Local Key",
+  "fullName": "Car Key Supply",
+  "name": "Car Key Supply",
   "branding": {
     "icon": "ph-key",
     "font": "Satoshi",
     "tagline": "Your local automotive locksmith in Elbridge, NY",
-    "logoImage": "",
+    "logoImage": "/assets/images/logo.jpeg",
     "favicon": "/favicon.svg",
     "logoSuffix": "Logo"
   },
-  "address": "[Street address]",
-  "zipCode": "[ZIP code]",
+  "address": "598 State Route 5",
+  "zipCode": "13060",
   "city": "Elbridge",
   "phone": "315-552-1553",
-  "email": "[Business email]",
-  "hours": "[Business hours]",
-  "description": "Local Key is an automotive locksmith in Elbridge, NY, offering car key cutting, replacement keys and key fob programming throughout Greater Syracuse and Central New York.",
+  "email": "carkeysupplycny@gmail.com",
+  "description": "Car Key Supply is an automotive locksmith in Elbridge, NY, offering car key cutting, replacement keys and key fob programming throughout Greater Syracuse and Central New York.",
   "state": "NY",
   "country": "US",
   "areaServed": [

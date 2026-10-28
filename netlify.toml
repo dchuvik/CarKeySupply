@@ -50,6 +50,36 @@
 
 # Przekierowania — trailing slash
 [[redirects]]
+  from = "/pl"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/pl/polityka-prywatnosci/"
+  to = "/privacy-policy/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/pl/cookies/"
+  to = "/cookies/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/pl/*"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/polityka-prywatnosci/"
+  to = "/privacy-policy/"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/:path((?!.*\\.\\w+$).*)"
   to = "/:path/"
   status = 200

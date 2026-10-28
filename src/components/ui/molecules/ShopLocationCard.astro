@@ -1,0 +1,63 @@
+---
+import Heading from '@components/ui/atoms/Heading.astro';
+import Text from '@components/ui/atoms/Text.astro';
+import Button from '@components/ui/atoms/Button.astro';
+import SmartImage from '@components/ui/atoms/SmartImage.astro';
+import company from '@data/global/company.json';
+import locationCopy from '@data/global/shop-location.json';
+import { normalizeSmsNumber } from '@utils/appointment-request';
+import type { NovaLocale } from '@utils/nova-i18n';
+
+interface Props { locale?: NovaLocale; image?: string; imageAlt?: string; }
+const { locale = 'en', image, imageAlt = '' } = Astro.props;
+const copy = locationCopy[locale];
+const locality = `${company.city}, ${company.state} ${company.zipCode}`;
+const address = `${company.address}, ${locality}`;
+const mapUrl = new URL('https://maps.google.com/maps');
+mapUrl.search = new URLSearchParams({ q: address, z: '15', output: 'embed', hl: locale }).toString();
+const directionsUrl = new URL('https://www.google.com/maps/dir/');
+directionsUrl.search = new URLSearchParams({ api: '1', destination: address, travelmode: 'driving' }).toString();
+---
+
+<div class="shop-location-card" data-shop-location>
+  <iframe
+    src={mapUrl.href}
+    title={`${copy.mapTitle}: ${address}`}
+    width="600"
+    height="360"
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+    allowfullscreen
+    class="shop-location-map"
+    data-lenis-prevent
+  ></iframe>
+  <div class="shop-location-content">
+    <div class="shop-location-details">
+      <div class="shop-location-address">
+        <Text variant="accent-label" class="mb-2 text-brand-dark/65">{copy.appointmentOnly}</Text>
+        <Heading tag="h3" variant="feature-title" class="mb-2">{copy.heading}</Heading>
+        <address class="not-italic leading-relaxed">
+          {company.address}<br />{locality}
+        </address>
+      </div>
+      {image && <SmartImage src={image} alt={imageAlt} width={128} height={101} sizes="96px" class="shop-location-photo" />}
+    </div>
+    <Button href={directionsUrl.href} target="_blank" rel="noopener noreferrer" aria-label={copy.opensInNewTab} variant="primary" class="w-full">
+      {copy.directions}
+      <svg slot="icon-right" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10" /></svg>
+    </Button>
+    <Text variant="feature-body-sm" class="mt-4 text-brand-dark/65">{copy.reminder}{' '}<a href={`tel:${normalizeSmsNumber(company.phone)}`} class="inline-flex min-h-11 items-center font-semibold text-brand-dark underline underline-offset-2">{company.phone}</a></Text>
+  </div>
+</div>
+
+<style>
+  .shop-location-card { min-width: 0; overflow: hidden; border: 1px solid var(--color-outline-variant); border-radius: var(--ui-radius-xl); background: var(--color-surface); }
+  .shop-location-map { display: block; width: 100%; height: clamp(18rem, 32vw, 24rem); border: 0; background: var(--color-brand-cream); }
+  .shop-location-content { padding: clamp(1.25rem, 3vw, 1.75rem); }
+  .shop-location-details { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1.25rem; }
+  .shop-location-address { min-width: 0; }
+  .shop-location-details :global(p), .shop-location-details :global(h3) { overflow-wrap: anywhere; }
+  .shop-location-details :global(picture) { flex-shrink: 0; }
+  .shop-location-details :global(.shop-location-photo) { display: block; width: 6rem; height: 6rem; object-fit: cover; object-position: center; border-radius: var(--ui-radius-base); }
+  @media (max-width: 380px) { .shop-location-details { align-items: flex-start; flex-direction: column; } .shop-location-details :global(.shop-location-photo) { width: 5rem; height: 4rem; } }
+</style>

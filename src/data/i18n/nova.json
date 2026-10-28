@@ -1,317 +1,23 @@
 {
-  "pl": {
-    "page": {
-      "title": "Klucze samochodowe i auto locksmith w Elbridge NY | Local Key",
-      "description": "Local Key w Elbridge, NY: dorabianie kluczy i programowanie pilotów samochodowych. Szeroki wybór na miejscu. Obsługujemy Syracuse i okolice.",
-      "heading": "Klucze i piloty samochodowe w Elbridge, NY"
-    },
-    "navigation": {
-      "menu": [
-        {
-          "label": "Usługi",
-          "href": "/pl/#services"
-        },
-        {
-          "label": "Klucze na miejscu",
-          "href": "/pl/#keys-in-stock"
-        },
-        {
-          "label": "Obszar obsługi",
-          "href": "/pl/#service-area"
-        },
-        {
-          "label": "Pytania",
-          "href": "/pl/#faq"
-        }
-      ],
-      "cta": {
-        "label": "Umów wizytę",
-        "hoverLabel": "Ustalmy termin",
-        "href": "#schedule-appointment"
-      },
-      "aria": {
-        "menuOpen": "Otwórz menu nawigacji",
-        "menuClose": "Zamknij menu",
-        "menuExpand": "Rozwiń podmenu",
-        "navMain": "Nawigacja główna",
-        "drawer": "Menu nawigacji"
-      },
-      "languageLabel": "Wybierz język"
-    },
-    "sections": {
-      "nova-hero-wireframe": {
-        "eyebrow": "LOKALNY AUTO LOCKSMITH / ELBRIDGE, NY",
-        "heading": "Klucze i piloty w",
-        "headingAccent": "Elbridge, NY.",
-        "description": "Twój lokalny specjalista od kluczy samochodowych: dorabianie, wymiana i programowanie pilotów. Obsługujemy niemal każdą markę i model oraz mamy szeroki wybór kluczy na miejscu. Działamy w Syracuse i okolicach Central New York.",
-        "primaryCTA": {
-          "label": "Umów wizytę",
-          "href": "#schedule-appointment"
-        },
-        "secondaryCTA": {
-          "label": "Poznaj nasze usługi",
-          "href": "/pl/#services"
-        },
-        "trustedBy": "Obsługujemy",
-        "trustItems": [
-          "ELBRIDGE",
-          "SYRACUSE",
-          "OSWEGO",
-          "I OKOLICE"
-        ],
-        "image": "/assets/images/hero.png",
-        "imageAlt": "Klucze i piloty samochodowe obok urządzenia do programowania i maszyny do cięcia kluczy",
-        "stats": [
-          {
-            "value": "Cięcie",
-            "label": "Klucze samochodowe"
-          },
-          {
-            "value": "Klucze",
-            "label": "Programowanie kluczy i pilotów"
-          },
-          {
-            "value": "Na miejscu",
-            "label": "Szeroki wybór kluczy i pilotów"
-          },
-          {
-            "value": "Lokalnie",
-            "label": "Elbridge i okolice Syracuse"
-          }
-        ]
-      },
-      "nova-projects": {
-        "sectionId": "keys-in-stock",
-        "title": "Właściwy klucz zaczyna się tutaj.",
-        "description": "Mamy na miejscu szeroki wybór kluczy i pilotów samochodowych. Podaj nam swój samochód, a sprawdzimy odpowiedni klucz zapasowy lub pilot zastępczy.",
-        "linkLabel": "Umów wizytę",
-        "linkHref": "#schedule-appointment",
-        "items": [
-          {
-            "category": "KLUCZE SAMOCHODOWE",
-            "title": "Zapasowy klucz. O jedno zmartwienie mniej.",
-            "image": "/assets/images/two-key-fobs.png",
-            "alt": "Dwa piloty samochodowe trzymane przed zaparkowanym samochodem"
-          },
-          {
-            "category": "PILOTY I KLUCZYKI SMART",
-            "title": "Właściwy pilot. Zaprogramowany do Twojego auta.",
-            "image": "/assets/images/right-car-keys.png",
-            "alt": "Dwa klucze samochodowe z pilotami obok urządzenia do programowania we wnętrzu auta"
-          }
-        ]
-      },
-      "nova-services": {
-        "title": "Klucze na co dzień.",
-        "description": "Dorabianie, wymiana i programowanie do Twojego auta.",
-        "linkLabel": "Umów wizytę",
-        "linkHref": "#schedule-appointment",
-        "items": [
-          {
-            "number": "01.",
-            "icon": "key",
-            "title": "Dorabianie kluczy",
-            "description": "Docinamy klucze samochodowe, w tym wiele kluczy z transponderem i kluczy o wysokim stopniu zabezpieczenia. Podaj rok, markę i model, aby sprawdzić zgodność."
-          },
-          {
-            "number": "02.",
-            "icon": "cpu",
-            "title": "Programowanie kluczy",
-            "description": "Docięty klucz może wymagać programowania, aby uruchomić auto. Programujemy zgodne klucze z transponderem i chipem do wielu marek i modeli."
-          },
-          {
-            "number": "03.",
-            "icon": "car",
-            "title": "Piloty i kluczyki smart",
-            "description": "Wymień zgubiony lub zużyty pilot albo kluczyk do auta uruchamianego przyciskiem. Dobieramy i programujemy zgodne zamienniki do Twojego samochodu."
-          },
-          {
-            "number": "04.",
-            "icon": "copy",
-            "title": "Klucze zapasowe i zamienne",
-            "description": "Masz tylko jeden klucz lub potrzebujesz drugiego dla innego kierowcy? Pomożemy dobrać zapasowy albo zamienny klucz i sprawdzimy opcje po utracie wszystkich kluczy."
-          }
-        ],
-        "id": "services"
-      },
-      "nova-team": {
-        "sectionId": "about",
-        "title": "Twój lokalny specjalista od kluczy.",
-        "description": "Local Key w Elbridge, NY świadczy usługi automotive locksmith dla kierowców z Syracuse i okolic oraz hrabstw Onondaga i Oswego. Dorabiamy zapasowe klucze i programujemy piloty do niemal każdej marki i modelu, z szerokim wyborem na miejscu.",
-        "image": "",
-        "imageAlt": "",
-        "checks": [
-          "Cięcie i programowanie w jednym miejscu",
-          "Klucze, piloty i kluczyki smart",
-          "Dobór do roku, marki i modelu samochodu"
-        ],
-        "teamCount": "Elbridge",
-        "teamLabel": "Nowy Jork | Obsługujemy Central NY",
-        "teamAriaLabel": "Nasza lokalizacja",
-        "teamAvatars": [],
-        "buttonLabel": "Zobacz obszar obsługi",
-        "buttonHref": "/pl/#service-area"
-      },
-      "steps-numbered": {
-        "sectionId": "how-it-works",
-        "eyebrow": "DOBIERZMY TWÓJ KLUCZ",
-        "headingLines": [
-          "Potrzebujesz klucza?",
-          "Zacznij od tych kroków."
-        ],
-        "steps": [
-          {
-            "num": "01",
-            "title": "Podaj swój samochód",
-            "description": "Przygotuj rok produkcji, markę i model. Powiedz, czy potrzebujesz zapasowego klucza, zamiennika, czy nie masz już żadnego działającego klucza."
-          },
-          {
-            "num": "02",
-            "title": "Sprawdź właściwy klucz",
-            "description": "Dobierzemy klucz lub pilot, sprawdzimy dostępność i omówimy cenę oraz szczegóły obsługi w Twojej lokalizacji."
-          },
-          {
-            "num": "03",
-            "title": "Cięcie i programowanie",
-            "description": "Po potwierdzeniu szczegółów ustalimy cięcie i programowanie wymagane przez Twój samochód. Przygotuj posiadane klucze i piloty."
-          }
-        ]
-      },
-      "feature-grid": {
-        "sectionId": "service-area",
-        "data": {
-          "heading": "Z Elbridge do całego regionu Syracuse.",
-          "intro": "Szukasz usługi automotive locksmith, dorabiania kluczy lub programowania pilotów w okolicy Syracuse? Działamy w Elbridge i obsługujemy Syracuse, hrabstwa Onondaga i Oswego oraz okoliczne miejscowości Central New York. Podaj lokalizację, aby potwierdzić szczegóły obsługi.",
-          "items": [
-            {
-              "icon": "map-pin",
-              "title": "Elbridge i zachodnie przedmieścia",
-              "description": "Lokalne usługi kluczy samochodowych dla Elbridge, Jordan, Camillus, Marcellus, Skaneateles, Fairmount i Solvay."
-            },
-            {
-              "icon": "map-trifold",
-              "title": "Syracuse i pobliskie miejscowości",
-              "description": "Obsługujemy Syracuse, Liverpool, Baldwinsville, Clay, Cicero, North Syracuse, Brewerton, Mattydale, Salina, Lysander, East Syracuse, DeWitt, Fayetteville, Manlius i Jamesville."
-            },
-            {
-              "icon": "navigation-arrow",
-              "title": "Fulton i hrabstwo Oswego",
-              "description": "Dorabianie kluczy i programowanie pilotów dla kierowców z Fulton, Oswego, Phoenix, Central Square, Hannibal, Mexico, Palermo i Pennellville."
-            }
-          ]
-        }
-      },
-      "faq3": {
-        "sectionId": "faq",
-        "title": "Pytania o klucze samochodowe.",
-        "description": "Co warto wiedzieć przed dorobieniem klucza lub zaprogramowaniem pilota.",
-        "tagline": "PYTANIA I ODPOWIEDZI",
-        "items": [
-          {
-            "q": "Czy oferujecie automotive locksmith w Elbridge, NY?",
-            "a": "Tak. Local Key działa w Elbridge, NY i specjalizuje się w dorabianiu kluczy samochodowych, kluczach zamiennych oraz programowaniu kluczy i pilotów. Obsługujemy Syracuse i okolice Central New York."
-          },
-          {
-            "q": "Do jakich samochodów dorabiacie i programujecie klucze?",
-            "a": "Obsługujemy niemal każdą markę i model, w tym wiele samochodów amerykańskich, azjatyckich i europejskich. Dostępne opcje zależą od roku, modelu i systemu klucza. Podaj te informacje, a potwierdzimy możliwości."
-          },
-          {
-            "q": "Czy macie klucze i piloty na miejscu?",
-            "a": "Tak. Mamy szeroki wybór kluczy, pilotów i kluczyków smart. Dostępność zależy od samochodu, więc przed przyjazdem potwierdź z nami właściwy klucz lub pilot."
-          },
-          {
-            "q": "Czy programujecie kluczyki do uruchamiania przyciskiem?",
-            "a": "Programujemy zgodne kluczyki smart i piloty do wielu aut uruchamianych przyciskiem, a także klucze z transponderem i zintegrowanym pilotem. Sprawdzimy opcje dla Twojego samochodu."
-          },
-          {
-            "q": "Czy pomożecie, jeśli zgubiłem wszystkie klucze?",
-            "a": "Podaj rok, markę i model oraz poinformuj, że nie masz działającego klucza. Potwierdzimy, czy możemy pomóc w Twoim przypadku i co będzie potrzebne do wykonania zamiennika."
-          },
-          {
-            "q": "Ile kosztuje nowy klucz lub pilot?",
-            "a": "Cena zależy od samochodu, rodzaju klucza lub pilota oraz wymaganego cięcia i programowania. Podaj rok, markę, model i informację o działającym kluczu, aby omówić dokładną wycenę."
-          },
-          {
-            "q": "Czy obsługujecie Syracuse i pobliskie miejscowości?",
-            "a": "Tak. Działamy w Elbridge, NY i obsługujemy Syracuse i okolice, w tym Jordan, Camillus, Liverpool, Baldwinsville, Clay, Cicero, North Syracuse, East Syracuse, DeWitt, Fayetteville, Manlius i Skaneateles oraz Fulton i hrabstwo Oswego. Podaj lokalizację, aby potwierdzić szczegóły."
-          },
-          {
-            "q": "Czy zaprogramujecie pilot kupiony w internecie?",
-            "a": "Zapytaj nas przed zamówieniem. Numer części, częstotliwość i zgodność muszą pasować do samochodu. Niektóre używane lub zamienne piloty mogą nie nadawać się do programowania. Sprawdzimy Twój pilot lub dobierzemy dostępny na miejscu."
-          },
-          {
-            "q": "Jakie informacje przygotować?",
-            "a": "Przygotuj rok, markę i model auta, swoją lokalizację oraz informację, czy masz działający klucz. Powiedz, czy potrzebujesz zwykłego klucza, pilota czy kluczyka smart. Przy ustalaniu obsługi wyjaśnimy, jakie dodatkowe dane samochodu lub potwierdzenie własności będą potrzebne."
-          }
-        ]
-      }
-    },
-    "footer": {
-      "eyebrow": "AUTOMOTIVE LOCKSMITH / ELBRIDGE, NY",
-      "heading": "Dobierzmy Twój klucz.",
-      "description": "Podaj rok, markę i model auta, swoją lokalizację oraz informację, czy masz działający klucz. Sprawdzimy zgodność, dostępność i cenę klucza lub pilota.",
-      "primaryLabel": "Umów wizytę",
-      "primaryHref": "#schedule-appointment",
-      "secondaryLabel": "Poznaj nasze usługi",
-      "secondaryHref": "/pl/#services",
-      "legalLinks": [
-        {
-          "label": "Prywatność",
-          "href": "/polityka-prywatnosci/"
-        },
-        {
-          "label": "Pliki cookies",
-          "href": "/cookies/"
-        }
-      ],
-      "footerLinks": [
-        {
-          "label": "Usługi",
-          "href": "/pl/#services"
-        },
-        {
-          "label": "Klucze na miejscu",
-          "href": "/pl/#keys-in-stock"
-        },
-        {
-          "label": "Obszar obsługi",
-          "href": "/pl/#service-area"
-        },
-        {
-          "label": "Pytania",
-          "href": "/pl/#faq"
-        }
-      ],
-      "ariaLegal": "Informacje o prywatności",
-      "ariaNavigation": "Nawigacja stopki",
-      "copyright": "Local Key | Elbridge, Nowy Jork. Wszelkie prawa zastrzeżone.",
-      "locationLabel": "Elbridge, NY | Obsługujemy Syracuse i okolice",
-      "phoneLabel": "Zadzwoń w sprawie klucza",
-      "emailLabel": "Wyślij informacje o aucie",
-      "attributionPrefix": "Design and development by ",
-      "attributionLinkLabel": "WebScale",
-      "attributionLinkHref": "https://webscale.pl"
-    }
-  },
   "en": {
     "page": {
-      "title": "Auto Locksmith in Elbridge, NY | Car Keys & Fobs | Local Key",
-      "description": "Local Key, your automotive locksmith in Elbridge, NY. Car key cutting, replacement keys and fob programming. Keys in stock. Serving Greater Syracuse.",
+      "title": "Auto Locksmith in Elbridge, NY | Car Keys & Fobs | Car Key Supply",
+      "description": "Car Key Supply, your automotive locksmith in Elbridge, NY. Car key cutting, replacement keys and fob programming. Keys in stock. Serving Greater Syracuse.",
       "heading": "Car keys & fobs in Elbridge, NY"
     },
     "navigation": {
       "menu": [
         {
-          "label": "Key services",
+          "label": "Services",
           "href": "/#services"
         },
         {
-          "label": "Keys in stock",
-          "href": "/#keys-in-stock"
+          "label": "How it works",
+          "href": "/#how-it-works"
         },
         {
-          "label": "Service area",
-          "href": "/#service-area"
+          "label": "Find us",
+          "href": "/#about"
         },
         {
           "label": "FAQs",
@@ -319,8 +25,8 @@
         }
       ],
       "cta": {
-        "label": "Schedule appointment",
-        "hoverLabel": "Let's find a time",
+        "label": "Get key help",
+        "hoverLabel": "Start your request",
         "href": "#schedule-appointment"
       },
       "aria": {
@@ -329,15 +35,14 @@
         "menuExpand": "Expand submenu",
         "navMain": "Main navigation",
         "drawer": "Navigation menu"
-      },
-      "languageLabel": "Choose language"
+      }
     },
     "sections": {
       "nova-hero-wireframe": {
         "eyebrow": "YOUR LOCAL AUTOMOTIVE LOCKSMITH / ELBRIDGE, NY",
-        "heading": "Car keys & fobs in",
-        "headingAccent": "Elbridge, NY.",
-        "description": "Your local automotive locksmith for spare keys, replacements and key fob programming. We cut and program keys for nearly every make and model, with a wide selection in stock. Serving Greater Syracuse and Central New York.",
+        "heading": "Car key trouble?",
+        "headingAccent": "Start here.",
+        "description": "Urgent help or a spare for later. Tell us what you need and we’ll help you take the next step. Car key cutting and fob programming in Elbridge, serving Greater Syracuse.",
         "primaryCTA": {
           "label": "Schedule an appointment",
           "href": "#schedule-appointment"
@@ -376,7 +81,7 @@
       },
       "nova-projects": {
         "sectionId": "keys-in-stock",
-        "title": "The right key starts here.",
+        "title": "Spare keys, replacement keys & fobs.",
         "description": "We keep a wide selection of car keys and key fobs in stock. From a spare for the family car to a replacement remote, tell us what you drive and we'll check the right match for your vehicle.",
         "linkLabel": "Schedule an appointment",
         "linkHref": "#schedule-appointment",
@@ -431,9 +136,9 @@
       "nova-team": {
         "sectionId": "about",
         "title": "Your local car key locksmith.",
-        "description": "Local Key is an automotive locksmith based in Elbridge, NY, helping drivers across Greater Syracuse, Onondaga County and Oswego County. From cutting a spare to programming a new fob, we work with nearly every make and model and keep a broad selection of keys and fobs in stock.",
-        "image": "",
-        "imageAlt": "",
+        "description": "Visit our Elbridge shop at 598 State Route 5, Elbridge, NY 13060, by appointment. We cut spare and replacement car keys and program key fobs for drivers across Greater Syracuse and Central New York. Call, text, or start with the questions above to arrange your visit.",
+        "image": "/assets/images/shop.webp",
+        "imageAlt": "Car Key Supply shop at 598 State Route 5 in Elbridge, with the number 598 beside the garage door",
         "checks": [
           "Key cutting and programming in one place",
           "Keys, fobs, remotes and smart keys",
@@ -456,8 +161,8 @@
         "steps": [
           {
             "num": "01",
-            "title": "Tell us what you drive",
-            "description": "Have your vehicle's year, make and model ready. Let us know whether you need a spare, a replacement, or help because every key is missing."
+            "title": "Urgent or planning ahead?",
+            "description": "Need help now? Call or text 315-552-1553 directly. Planning ahead? Start the short questions with your vehicle’s year, make, and model."
           },
           {
             "num": "02",
@@ -467,7 +172,7 @@
           {
             "num": "03",
             "title": "Get it cut & programmed",
-            "description": "Once the details are confirmed, we arrange the cutting and programming your vehicle requires. Have any existing keys and fobs ready."
+            "description": "Shop visits are by appointment. Once we confirm your time, visit us at 598 State Route 5 in Elbridge for cutting and programming. Bring any existing keys and fobs."
           }
         ]
       },
@@ -475,7 +180,7 @@
         "sectionId": "service-area",
         "data": {
           "heading": "Elbridge roots. Greater Syracuse reach.",
-          "intro": "Looking for an automotive locksmith, car key cutting or key fob programming near Syracuse? Local Key is based in Elbridge and serves Greater Syracuse, Onondaga County, Oswego County and nearby Central New York communities. Share your location to confirm service arrangements.",
+          "intro": "Looking for an automotive locksmith, car key cutting or key fob programming near Syracuse? Car Key Supply is based in Elbridge and serves Greater Syracuse, Onondaga County, Oswego County and nearby Central New York communities. Share your location to confirm service arrangements.",
           "items": [
             {
               "icon": "map-pin",
@@ -502,8 +207,12 @@
         "tagline": "CAR KEY FAQ",
         "items": [
           {
+            "q": "Do I need an appointment to visit the shop?",
+            "a": "Yes. Shop visits are by appointment at 598 State Route 5, Elbridge, NY 13060. Call or text 315-552-1553, or use our quick questions to prepare an appointment request. We’ll reply to confirm availability. If your situation is urgent, call or text us directly."
+          },
+          {
             "q": "Are you an automotive locksmith in Elbridge, NY?",
-            "a": "Yes. Local Key is based in Elbridge, NY and specializes in automotive key cutting, replacement keys, key programming and key fobs. We serve drivers throughout Greater Syracuse and nearby Central New York communities."
+            "a": "Yes. Car Key Supply is based in Elbridge, NY and specializes in automotive key cutting, replacement keys, key programming and key fobs. We serve drivers throughout Greater Syracuse and nearby Central New York communities."
           },
           {
             "q": "What vehicles can you cut and program keys for?",
@@ -546,12 +255,12 @@
       "description": "Tell us your vehicle's year, make and model, your location, and whether you have a working key. We'll check compatibility, stock and pricing for your next key or fob.",
       "primaryLabel": "Schedule an appointment",
       "primaryHref": "#schedule-appointment",
-      "secondaryLabel": "Explore key services",
-      "secondaryHref": "/#services",
+      "secondaryLabel": "Call now",
+      "secondaryHref": "tel:+13155521553",
       "legalLinks": [
         {
           "label": "Privacy policy",
-          "href": "/polityka-prywatnosci/"
+          "href": "/privacy-policy/"
         },
         {
           "label": "Cookies",
@@ -560,12 +269,20 @@
       ],
       "footerLinks": [
         {
-          "label": "Key services",
+          "label": "Services",
           "href": "/#services"
         },
         {
-          "label": "Keys in stock",
+          "label": "Keys & fobs",
           "href": "/#keys-in-stock"
+        },
+        {
+          "label": "How it works",
+          "href": "/#how-it-works"
+        },
+        {
+          "label": "Find us",
+          "href": "/#about"
         },
         {
           "label": "Service area",
@@ -578,13 +295,14 @@
       ],
       "ariaLegal": "Legal documents",
       "ariaNavigation": "Footer navigation",
-      "copyright": "Local Key | Elbridge, New York. All rights reserved.",
+      "copyright": "Car Key Supply | Elbridge, New York. All rights reserved.",
       "locationLabel": "Based in Elbridge, NY | Serving Greater Syracuse",
       "phoneLabel": "Call about your key",
       "emailLabel": "Email your vehicle details",
       "attributionPrefix": "Design and development by ",
       "attributionLinkLabel": "WebScale",
-      "attributionLinkHref": "https://webscale.pl"
+      "attributionLinkHref": "https://webscale.pl",
+      "appointmentOnly": "By appointment"
     }
   }
 }
