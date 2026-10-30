@@ -31,6 +31,8 @@ The about section includes a lazy-loaded Google Map, the shop photo and a direct
 | Spare-key card | `public/assets/images/two-key-fobs.png` |
 | Programming card | `public/assets/images/right-car-keys.png` |
 
+The landing-page introduction sits above a large shop photo and the request funnel. Desktop places the photo beside the form; phones show the photo above the form, with a jump link and call link before it. The photo keeps its original aspect ratio, and visitors can open the full-size original. Keep the desktop caption over the parking area so the building remains visible.
+
 PNG, JPEG and standalone WebP photos in `public/assets/images/` generate responsive WebP and AVIF versions during `npm run assets:img` or `npm run build`. Use lowercase filenames with hyphens. Keep the original path in the content; `SmartImage` supplies the generated variants. For WebP originals, the standard derivative uses `@800` so the supplied file is preserved. Both key cards use a centered cover crop on mobile and desktop.
 
 When replacing a photo, use a new filename and update its path and descriptive alternative text. The footer uses a plain dark background. There are no remaining template stock photos.

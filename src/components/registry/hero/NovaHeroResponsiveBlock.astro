@@ -4,10 +4,12 @@ import Container from '@components/ui/layout/Container.astro';
 import Heading from '@components/ui/atoms/Heading.astro';
 import Text from '@components/ui/atoms/Text.astro';
 import SmartImage from '@components/ui/atoms/SmartImage.astro';
+import Button from '@components/ui/atoms/Button.astro';
 import KeyRequestFunnel from '@components/ui/molecules/KeyRequestFunnel.astro';
 import company from '@data/global/company.json';
 import appointments from '@data/global/appointments.json';
 import type { NovaLocale } from '@utils/nova-i18n';
+import { normalizeSmsNumber } from '@utils/appointment-request';
 
 interface Props {
   eyebrow?: string;
@@ -29,18 +31,29 @@ const shopAlt = 'Car Key Supply shop at 598 State Route 5 in Elbridge';
     <div class="funnel-hero-shell">
       <div class="funnel-hero-grid">
         <div class="funnel-hero-intro">
-          <Text tag="p" variant="accent-label" class="mb-5 font-semibold tracking-[0.14em] text-brand-dark/65">{props.eyebrow}</Text>
-          <Heading tag="h1" variant="hero" class="max-w-xl text-[clamp(2.75rem,6vw,4.5rem)] leading-[0.98] tracking-[-0.065em]">{props.heading}<br /><span class="text-brand-accent">{props.headingAccent}</span></Heading>
-          <Text variant="lead" class="mt-5 max-w-lg text-[clamp(1rem,1.5vw,1.15rem)]">{props.description}</Text>
-          <figure class="funnel-shop">
-            <SmartImage src="/assets/images/shop.webp" alt={shopAlt} width={128} height={101} loading="eager" sizes="128px" class="funnel-shop-photo" />
-            <figcaption>
-              <Text tag="strong" variant="feature-body-sm" class="block font-bold">{flow.shop} · {flow.appointmentOnly}</Text>
-              <Text tag="span" variant="feature-body-sm" class="block">{company.address}</Text>
-              <Text tag="span" variant="feature-body-sm" class="block">{`${company.city}, ${company.state} ${company.zipCode}`}</Text>
-            </figcaption>
-          </figure>
+          <div>
+            <Text tag="p" variant="accent-label" class="mb-5 font-semibold tracking-[0.14em] text-brand-dark/65">{props.eyebrow}</Text>
+            <Heading tag="h1" variant="hero" class="max-w-xl text-[clamp(2.75rem,6vw,4rem)] leading-[0.98] tracking-[-0.065em]">{props.heading}<br /><span class="text-brand-accent">{props.headingAccent}</span></Heading>
+          </div>
+          <div class="funnel-hero-lead">
+            <Text variant="lead" class="max-w-lg text-[clamp(1rem,1.5vw,1.15rem)]">{props.description}</Text>
+            <div class="funnel-hero-quick-actions">
+              <Button href="#home-request" variant="primary" size="md">Get key help ↓</Button>
+              <a href={`tel:${normalizeSmsNumber(company.phone)}`} class="funnel-hero-quick-call">Call {company.phone}</a>
+            </div>
+          </div>
         </div>
+        <figure class="funnel-shop">
+          <a href="/assets/images/shop.webp" target="_blank" rel="noopener noreferrer" class="funnel-shop-link" aria-label="View a larger photo of our Elbridge shop (opens in a new tab)">
+            <SmartImage src="/assets/images/shop.webp" alt={shopAlt} width={2711} height={2142} loading="eager" fetchpriority="high" sizes="(min-width: 1440px) 560px, (min-width: 1024px) 43vw, calc(100vw - 2.5rem)" class="funnel-shop-photo" />
+            <span class="funnel-shop-expand" aria-hidden="true">View photo ↗</span>
+          </a>
+          <figcaption>
+            <Text tag="strong" variant="feature-body-sm" class="block font-bold">{flow.shop} · {flow.appointmentOnly}</Text>
+            <Text tag="span" variant="feature-body-sm" class="block">{company.address}</Text>
+            <Text tag="span" variant="feature-body-sm" class="block">{`${company.city}, ${company.state} ${company.zipCode}`}</Text>
+          </figcaption>
+        </figure>
         <div class="funnel-hero-card">
           <KeyRequestFunnel locale={locale} id="home-request" />
         </div>
@@ -54,15 +67,32 @@ const shopAlt = 'Car Key Supply shop at 598 State Route 5 in Elbridge';
 
 <style>
   .funnel-hero-shell { overflow: hidden; border-radius: var(--ui-radius-xl) var(--ui-radius-xl) 0 0; background: var(--color-brand-cream); }
-  .funnel-hero-grid { display: grid; align-items: start; max-width: 90rem; margin-inline: auto; gap: clamp(1.75rem, 4vw, 4rem); padding: clamp(1.25rem, 4vw, 4rem); }
-  .funnel-hero-intro { min-width: 0; }
-  .funnel-hero-card { min-width: 0; padding: clamp(1.25rem, 3vw, 2.25rem); background: var(--color-surface); border: 1px solid var(--color-outline-variant); border-radius: var(--ui-radius-lg); box-shadow: var(--ui-elevation-soft); }
-  .funnel-shop { display: none; align-items: center; gap: 1rem; margin-top: 1.75rem; padding: 0.85rem; border: 1px solid var(--color-outline-variant); border-radius: var(--ui-radius-md); background: var(--color-surface); }
-  .funnel-shop :global(picture) { flex-shrink: 0; }
-  .funnel-shop :global(.funnel-shop-photo) { display: block; width: 7rem; height: 6rem; object-fit: cover; object-position: center; border-radius: var(--ui-radius-sm); }
-  .funnel-shop figcaption { min-width: 0; line-height: 1.6; }
+  .funnel-hero-grid { display: grid; grid-template-areas: 'intro' 'photo' 'form'; align-items: start; max-width: 90rem; margin-inline: auto; column-gap: clamp(1.75rem, 4vw, 4rem); row-gap: 2rem; padding: clamp(1.25rem, 4vw, 3rem); }
+  .funnel-hero-intro { grid-area: intro; display: grid; gap: 1.25rem; min-width: 0; }
+  .funnel-hero-lead { min-width: 0; }
+  .funnel-hero-card { grid-area: form; min-width: 0; padding: clamp(1.25rem, 3vw, 2.25rem); background: var(--color-surface); border: 1px solid var(--color-outline-variant); border-radius: var(--ui-radius-lg); box-shadow: var(--ui-elevation-soft); }
+  .funnel-hero-card :global(.key-funnel) { --funnel-scroll-offset: calc(var(--site-header-height, 5.75rem) + 4rem); }
+  .funnel-hero-quick-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1rem; margin-top: 1rem; }
+  .funnel-hero-quick-call { display: inline-flex; min-height: 2.75rem; align-items: center; font-size: 0.9rem; font-weight: 600; text-decoration: underline; text-underline-offset: 0.2em; }
+  .funnel-shop { grid-area: photo; position: relative; min-width: 0; margin: 0; overflow: hidden; border: 1px solid var(--color-outline-variant); border-radius: var(--ui-radius-lg); background: var(--color-surface); }
+  .funnel-shop-link { display: block; position: relative; }
+  .funnel-shop-link:focus-visible { outline: 3px solid var(--color-brand-accent); outline-offset: -4px; }
+  .funnel-shop :global(picture) { display: block; }
+  .funnel-shop :global(.funnel-shop-photo) { display: block; width: 100%; height: auto; aspect-ratio: 2711 / 2142; }
+  .funnel-shop-expand { position: absolute; top: 0.85rem; right: 0.85rem; padding: 0.45rem 0.75rem; border: 1px solid rgb(255 255 255 / 0.35); border-radius: var(--ui-radius-full); background: rgb(22 22 22 / 0.8); color: var(--color-brand-light); font-size: 0.75rem; font-weight: 600; }
+  .funnel-shop figcaption { min-width: 0; padding: 1rem 1.25rem; line-height: 1.6; }
   .funnel-hero-stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; padding: 1.75rem clamp(1.25rem, 4vw, 4rem); background: var(--color-brand-dark); color: var(--color-brand-light); }
   .funnel-hero-stats > div { display: flex; flex-direction: column; gap: 0.35rem; }
   .funnel-hero-stats strong { font-size: 1.25rem; color: var(--color-brand-accent); }
-  @media (min-width: 768px) { .funnel-hero-grid { grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); } .funnel-shop { display: flex; } .funnel-hero-stats { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+  @media (min-width: 768px) { .funnel-hero-stats { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+  @media (min-width: 1024px) {
+    .funnel-hero-grid { grid-template-areas: 'intro intro' 'photo form'; grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr); }
+    .funnel-hero-intro { grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr); column-gap: clamp(1.75rem, 4vw, 4rem); align-items: end; }
+    .funnel-hero-lead { padding-bottom: 0.2rem; }
+    .funnel-hero-quick-actions { display: none; }
+  }
+  @media (min-width: 1280px) {
+    .funnel-shop figcaption { position: absolute; inset: auto 0 0; padding: 2.5rem 1.5rem 1.25rem; background: linear-gradient(transparent, rgb(0 0 0 / 0.85)); color: var(--color-brand-light); pointer-events: none; }
+    .funnel-shop figcaption :global(p), .funnel-shop figcaption :global(span), .funnel-shop figcaption :global(strong) { color: inherit; }
+  }
 </style>
